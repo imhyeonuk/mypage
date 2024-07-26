@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내 페이지</title>
+</head>
+<body>
+<h1>댓글 목록</h1>
+
+<!-- form의 데이터를 요청하는 주소 설정 -->
+<!-- 게시물을 수정하는 매서드로 "post"사용 -->
+
+<ul> 
+    <% for (comment of comments) { %>
+      <li><%= comment.id  %><%= comment.content %></li>
+      <form action="/update/<%= comment.id %>" method="post">
+      <input type="text" name="content">
+      <input type="submit" value="수정하기">
+      </form>    
+      <!-- 게시글을 삭제하는 매서드로 "post"사용 -->
+      <form action="/delete/<%= comment.id %>" method="post">
+      <input type="submit" value="삭제하기">
+      </form>            
+      <% } %>  
+    <!-- 버튼 역할을 구분하도록 value 속성에 "수정하기" 문구 설정 -->
+</ul>
+<hr> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<% for (comment of comments) { %>
+  <li><%= comment  %></li>                
+  <% } %> -->
+
+
+  <form action="/create" method="post">
+    <input type="text" name="content">
+    <input type="submit" value="Submit">
+  </form>  
+</body>
+</html>
+<!-- 
+//for 반복문으로 comments 배열 속 데이터를 웹 페이지에 한 줄씩 표시하기 -->
